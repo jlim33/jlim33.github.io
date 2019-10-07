@@ -1,0 +1,136 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+
+<title>CNIT 133 HW3 Part 1</title>
+
+<style>
+body { font-size: 3rem; color: ffff00; background: skyblue; }
+</style>
+
+<script>
+
+function process()
+{
+var number1, number2, number3, number4, n1, n2, n3, n4, x, i, emptyCount, valNum, valNumP, hwAvg, midE, finalE, pp, totalS; totalSInt;
+number1 = document.forms["myform"].elements["num1"].value;
+number2 = document.forms["myform"].elements["num2"].value;
+number3 = document.forms["myform"].elements["num3"].value;
+number4 = document.forms["myform"].elements["num4"].value;
+x = [number1, number2, number3, number4];
+console.log(x);
+for (i = 0; i < 4; i++){
+// get each input value
+emptyCount = x[i];
+// check for empty field
+if(emptyCount === "")
+{
+alert("Missing entry. Please enter value in all fields.");
+return;
+}
+ else{
+   // get input number value from form using getElementById
+   for (var i = 0; i <4; i++){
+     valNum = x[i];
+     valNumP = parseFloat(valNum);
+
+   if ( isNaN(valNumP) )
+   {
+   window.alert("Inputted value " + valNum + " is Not an float - try again");
+
+   window.alert("The parseFloat value is " + valNumP + " - try again");
+   }
+    else{
+    console.log(x);
+    // return valNumP;
+        }
+                              }
+       }
+                            }
+console.log(number1);
+hwAvg = parseFloat(number1);
+console.log(hwAvg);
+// document.write(hwAvg);
+midE = parseFloat(number2);
+console.log(midE);
+// alert(midE);
+finalE = parseFloat(number3);
+console.log(finalE);
+pp = parseFloat(number4);
+console.log(pp);
+totalS = (.5)*hwAvg + (.2)*midE + (.2)*finalE +(.1)*pp;
+alert(totalS);
+console.log(totalS);
+totalSInt = parseInt(totalS);
+alert(totalSInt);
+console.log(totalSInt);
+
+}
+</script>
+
+<script>
+
+function res()
+{
+document.getElementById("num1").innerHTML = "";
+document.myform.num1.focus();
+
+document.getElementById("num2").innerHTML = "";
+document.myform.num1.focus();
+
+document.getElementById("num3").innerHTML = "";
+document.myform.num1.focus();
+
+document.getElementById("num4").innerHTML = "";
+document.myform.num1.focus();
+}
+
+</script>
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+
+</head>
+
+<body onload="document.forms['myform'].elements['num1'].focus()">
+
+<section class="body">
+
+<h3>You can get A+<br>
+  Calculate Final Grade
+</h3>
+
+<form name="myform">
+<table>
+<tr>
+<td>Homework Average:</td>
+<td><input type="text" name="num1" size="10"></td>
+</tr>
+<tr>
+<td>Midterm Exam:</td>
+<td><input type="text" name="num2" size="10"></td>
+</tr>
+<tr>
+<td>Final Exam:</td>
+<td><input type="text" name="num3" size="10"></td>
+</tr>
+<tr>
+<td>Paticipation:</td>
+<td><input type="text" name="num4" size="10"></td>
+</tr>
+</table>
+<!-- consolelog(totalSInt); -->
+<div id="totalSInt"></div>
+<!-- document.write(totalSInt); -->
+<!-- alert(totalSInt); -->
+<br><br>
+<input type="button" onclick="process(); document.forms['myform'].elements['num1'].focus();" value="SUBMIT">
+<input type="reset" value="RESET" onclick="res()">
+</form>
+</section>
+</body>
+
+</html>
