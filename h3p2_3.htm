@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CNIT 133 HW3 PART2</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="z://resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( document ).tooltip();
+  } );
+  </script>
+  <!-- <style>
+  body { font-size: 3rem; color: ffff00; background: skyblue; }
+  </style>
+  <style>
+  label {
+    display: inline-block;
+    width: 10em;
+  }
+  </style> -->
+  <script>
+  function process()
+  {
+  var number1, number2, number3, number4, n1, n2, n3, n4, x, i, emptyCount, valNum, valNumI, basePay = 200, hwAvg, midE, finalE, pp, totalIncome;
+  number1 = document.forms["myform"].elements["num1"].value;
+  number2 = document.forms["myform"].elements["num2"].value;
+  number3 = document.forms["myform"].elements["num3"].value;
+  number4 = document.forms["myform"].elements["num4"].value;
+  x = [number1, number2, number3, number4];
+  console.log(x);
+  for (i = 0; i < 4; i++){
+  // get each input value
+  emptyCount = x[i];
+  // check for empty field
+  if(emptyCount === "")
+  {
+  alert("Missing entry. Please enter value in all fields.");
+  return;
+  }
+   else{
+     // get input number value from form using getElementById
+     for (i = 0; i <4; i++){
+       valNum = x[i];
+       valNumI = parseInt(valNum);
+       console.log(valNumI);
+     if ( isNaN(valNumI) )
+     {
+     window.alert("Inputted value " + valNum + " is Not an Integer - try again");
+     window.alert("The parseInt value is " + valNumI + " - try again");
+     }
+      else if( valNumI < 0)
+        window.alert("Wrong Input!!! Please, put a positive interger number !!!");
+      
+        else{
+      // console.log(x);
+          }
+                                }
+         }
+                              }
+                              // // Now we set the jQuery rules. In the following example, I want my form input to be invalid if no data is entered, non-numeric data is entered, or the numeric data is not between 0 and 10.
+                              // $(document).ready(function(){
+                              // $("#myform").validate({
+                              // // Rules for each input item
+                              // rules:
+                              // {
+                              // num: { required: true, number: true, min: 0, max: 100}
+                              // }
+                              // });
+                              // });
+                              // Note that myform is the id of my form HTML element and num is the name of the input form element. I also code as num the id of the input form element because I am using getElementById in the processing. It should be fairly obvious what the above rules are testing., i.e., the input form data is required, the data must be numeric, and the data must be within the range of 0 to 10.
+                              // Then in my processing function, I allow the processing if the data entered is valid. Thus, I would have:
+                              // function process() {
+                              // if ($("#myform").valid()) {
+                              //process data
+                              // }
+                              // }
+  // // console.log(number1);
+  // hwAvg = parseInt(number1);
+  // console.log(hwAvg);
+  // // document.write(hwAvg);
+  // midE = parseInt(number2);
+  // console.log(midE);
+  // // alert(midE);
+  // finalE = parseInt(number3);
+  // console.log(finalE);
+  // pp = parseInt(number4);
+  // console.log(pp);
+  totalIncome = (239.99)*number1 + (129.75)*number2 + (99.95)*number3 +(350.89)*number4 + basePay;
+  alert(totalIncome);
+  console.log(totalIncome);
+  // totalIncomeInt = parseInt(totalIncome);
+  // alert(totalIncomeInt);
+  // console.log(totalIncomeInt);
+  // window.alert("Your final grade is " + totalIncomeint);
+  }
+  </script>
+
+</head>
+<body>
+
+<!-- <p><a href="#" title="That&apos;s what this widget is">Tooltips</a> can be attached to any element. When you hover
+the element with your mouse, the title attribute is displayed in a little box next to the element, just like a native tooltip.</p>
+<p>But as it's not a native tooltip, it can be styled. Any themes built with -->
+<a href="http://jqueryui.com/themeroller/" title="ThemeRoller: jQuery UI&apos;s theme builder application">ThemeRoller</a>
+will also style tooltips accordingly.</p>
+<!-- <p>Tooltips are also useful for form elements, to show some additional information in the context of each field.</p> -->
+<p><label for="Name">Your name:</label><input id="name" title="Please, make suer that the salesperson's name is spelled correctly."></p>
+<!-- <p>Hover the field to see the tooltip.</p> -->
+
+
+</body>
+<form name="myform">
+<table>
+<tr>
+<td>Item 1 sold quantity:</td>
+<td><input type="number" name="num1" size="10"></td>
+</tr>
+<tr>
+<td>Item 2 sold quantity:</td>
+<td><input type="number" name="num2" size="10"></td>
+</tr>
+<tr>
+<td>Item 3 sold quantity:</td>
+<td><input type="number" name="num3" size="10"></td>
+</tr>
+<tr>
+<td>Item 4 sold quantity:</td>
+<td><input type="number" name="num4" size="10"></td>
+</tr>
+</table>
+
+<br><br>
+<input type="button" onclick="process(); document.forms['myform'].elements['num1'].focus();" value="SUBMIT">
+<input type="reset" value="Reset"/>
+<!-- <input type="reset" value="RESET" onclick="res()"> -->
+<!-- <input type="button" onClick="finalG(); document.forms['myform'].elements['num1'].focus();" value="Final Grade"> -->
+</form>
+</section>
+</body>
+
+</html>
