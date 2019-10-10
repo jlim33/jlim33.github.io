@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CNIT 133 HW3 PART2</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- <link rel="stylesheet" href="\\resources/demos/style.css"> -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( document ).tooltip();
+  } );
+
+  </script>
+  <body style="background-color: #00ffff">
+
+  <!-- Site navigation menu -->
+  <ol class="navbar">
+    <li><a href="HW3_1.htm">HW3 Part1</a>
+    <li><a href="HW3_2.htm">HW3 Part2</a>
+    <li><a href="HW3_3.htm">HW3 Part3</a>
+    <li><a href="HW3_4.htm">HW3 Part4</a>
+  </ol>
+  <!-- <style>
+  body { font-size: 3rem; color: ffff00; background: skyblue; }
+  </style>
+  <style>
+  label {
+    display: inline-block;
+    width: 10em;
+  }
+  </style> -->
+
+  <script>
+  function process()
+  {
+  var number1, number2, number3, number4, n1, n2, n3, n4, x, i, emptyCount, valNum, valNumI, basePay = 200, output1 = 0, totalIncome, totalIncomeI, output = 0;
+     // get input number value from form using document forms
+  number1 = document.forms["myform"].elements["num1"].value;
+  number2 = document.forms["myform"].elements["num2"].value;
+  number3 = document.forms["myform"].elements["num3"].value;
+  number4 = document.forms["myform"].elements["num4"].value;
+
+  output = document.forms["myform"].elements["output"].value;
+  x = [number1, number2, number3, number4];
+  for (i = 0; i < 4; i++){
+  // get each input value
+  emptyCount = x[i];
+  // check for empty field
+  if(emptyCount === "")
+  {
+  alert("Missing entry. Please enter value in all fields.");
+  return;
+  }
+   else{
+
+     for (i = 0; i <4; i++){
+       valNum = x[i];
+       valNumI = parseInt(valNum);
+       console.log(valNumI);
+     if ( isNaN(valNumI) )
+     {
+     window.alert("Inputted value " + valNum + " is Not an Integer - try again");
+     window.alert("The parseInt value is " + valNumI + " - try again");
+     }
+      else if( valNumI < 0)
+        window.alert("Wrong Input!!! Please, put a positive interger number !!!");
+
+        else{
+          }
+                                }
+         }
+                              }
+
+  totalIncome = (239.99)*number1 + (129.75)*number2 + (99.95)*number3 + (350.89)*number4 + basePay;
+  totalIncomeI = parseInt(totalIncome);
+  document.getElementById("output").innerHTML = totalIncomeI;
+}
+
+
+  </script>
+
+</head>
+<body>
+  <section>
+  <h3>Homework 3 - Part 2: Weekly Salary Calculator </h3>
+
+<!-- <p>Tooltips are also useful for form elements, to show some additional information in the context of each field.</p> -->
+<p><label for="Name">Salesperson's name:</label><input id="name" title="Please, make sure that the salesperson's name is spelled correctly."></p>
+<!-- <p>Hover the field to see the tooltip.</p> -->
+
+
+
+<form name="myform">
+<table>
+<tr>
+<td>Item 1 sold quantity:</td>
+<td><input type="number" name="num1" size="10"></td><td>Price:239.99</tb>
+</tr>
+<tr>
+<td>Item 2 sold quantity:</td>
+<td><input type="number" name="num2" size="10"></td><td>Price:129.75</tb>
+</tr>
+<tr>
+<td>Item 3 sold quantity:</td>
+<td><input type="number" name="num3" size="10"></td><td>Price:99.95</tb>
+</tr>
+<tr>
+<td>Item 4 sold quantity:</td>
+<td><input type="number" name="num4" size="10"></td><td>Price:350.89</tb>
+</tr>
+
+<h3>Total Sales' commission:</h3>
+<textarea rows="2" id = "output" name="output"></textarea>
+
+</table>
+
+</section>
+<br><br>
+<input type="button" onclick="process(); document.forms['myform'].elements['num1'].focus();" value="SUBMIT">
+<input type="reset" value="Reset"/>
+
+</form>
+
+</body>
+
+</html>
