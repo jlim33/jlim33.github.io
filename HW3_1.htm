@@ -5,10 +5,12 @@
 <meta charset="utf-8">
 
 <title>CNIT 133 HW3 Part 1</title>
-<body style="background-color: #00ffff">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<style>
+body { font-size: 1rem; color: ffff00; background: skyblue; }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 
 <!-- Site navigation menu -->
 <ol class="navbar">
@@ -27,7 +29,7 @@ number2 = document.forms["myform"].elements["num2"].value;
 number3 = document.forms["myform"].elements["num3"].value;
 number4 = document.forms["myform"].elements["num4"].value;
 x = [number1, number2, number3, number4];
-// console.log(x);
+console.log(x);
 for (i = 0; i < 4; i++){
 // get each input value
 emptyCount = x[i];
@@ -38,11 +40,10 @@ alert("Missing entry. Please enter value in all fields.");
 return;
 }
  else{
-   // check for Float
    for (i = 0; i <4; i++){
      valNum = x[i];
      valNumP = parseFloat(valNum);
-     // console.log(valNumP);
+     console.log(valNumP);
    if ( isNaN(valNumP) )
    {
    window.alert("Inputted value " + valNum + " is Not an float - try again");
@@ -51,12 +52,11 @@ return;
     else if(valNumP > 100 || valNumP < 0)
       window.alert("Wrong Input!!! Please, put number between 0 ~ 100");
       else{
-
         }
                               }
        }
                             }
-                            // Now we set the jQuery rules. In the following example, I want my form input to be invalid if no data is entered, non-numeric data is entered, or the numeric data is not between 0 and 100.
+                            // Now we set the jQuery rules. In the following example, I want my form input to be invalid if no data is entered, non-numeric data is entered, or the numeric data is not between 0 and 10.
                             $(document).ready(function(){
                             $("#myform").validate({
                             // Rules for each input item
@@ -66,8 +66,7 @@ return;
                             }
                             });
                             });
-                            // Note that myform is the id of my form HTML element and num is the name of the input form element. I also code as num the id of the input form element because I am using getElementById in the processing. It should be fairly obvious what the above rules are testing.
-                            // the input form data is required, the data must be numeric, and the data must be within the range of 0 to 100.
+                            // Note that myform is the id of my form HTML element and num is the name of the input form element. I also code as num the id of the input form element because I am using getElementById in the processing. It should be fairly obvious what the above rules are testing., i.e., the input form data is required, the data must be numeric, and the data must be within the range of 0 to 10.
                             // Then in my processing function, I allow the processing if the data entered is valid. Thus, I would have:
                             // function process() {
                             // if ($("#myform").valid()) {
@@ -82,10 +81,10 @@ finalE = parseFloat(number3);
 console.log(finalE);
 pp = parseFloat(number4);
 console.log(pp);
-totalS = (.5)*hwAvg + (.2)*midE + (.2)*finalE +(.1)*pp; // totaL score calculation fomula
+totalS = (.5)*hwAvg + (.2)*midE + (.2)*finalE +(.1)*pp;
 alert(totalS);
 console.log(totalS);
-totalSInt = parseInt(totalS); // total score as integer
+totalSInt = parseInt(totalS);
 alert(totalSInt);
 console.log(totalSInt);
 // window.alert("Your final grade is " + totalSint);
@@ -94,53 +93,56 @@ console.log(totalSInt);
 
 <script>
 function finalG() {
-  // console.log("finalG");
-  // console.log(totalSInt);
 
     if (totalSInt > 90 || totalSInt == 90)
     {
       n1 = 1;
+      n1 =  parseInt(n1);
     }
-      else if (totalSInt >= 80 && totalSInt < 90)
+    else if (totalSInt >= 80 && totalSInt < 90)
     {
-        n1 = 2;
+    n1 = 2;
+
     }
-        else if (totalSInt >= 70 && totalSInt < 80)
+      else if (totalSInt >= 70 && totalSInt < 80)
       {
-          n1 = 3;
+      n1 = 3;
       }
-          else if (totalSInt >= 60 && totalSInt < 70)
+        else if (totalSInt >= 60 && totalSInt < 70)
         {
-            n1 = 4;
+        n1 = 4;
         }
-            else {n1 = 5;}
-    // n1 = parseInt(n1)
-    console.log(n1)
+          else {n1 = 5;}
+    n1 = parseInt(n1)
 
   switch (n1)
 {
 // Display the grade based on the total score integral
 // case ((totalSInt >= 90)):
-case (n1):
+case (n1 = 1):
+console.log(n1)
+console.log("caseA");
 window.alert("A");
 
 break;
-case (n1):
+case (n1 = 2):
+// case (totalSInt >= 80 && totalSInt < 90):
+console.log("caseB")
 window.alert("B");
 break;
-case (n1):
+case (n1 = 3):
 window.alert("C");
 break;
-case (n1):
+case (n1 = 4):
 window.alert("D");
 break;
-case (n1):
+case (n1 = 5 ):
 window.alert("F");
 break;
 
 }
 if (totalSInt < 70)
-  window.alert("Student must retake the course");
+  window.alert("Student must retake the course!!!");
   else {
     return;
   }
@@ -193,19 +195,13 @@ document.myform.num1.focus();
 <td><input type="text" name="num4" size="10"></td>
 </tr>
 </table>
-<!-- consolelog(totalSInt); -->
-<!-- <div id="totalSInt"></div> -->
+<div id="totalSInt"></div>
 <h2>Your final grade is</h2>
-<!-- document.write(totalSInt); -->
-<!-- <div id=finalG()></div> -->
-<!-- finalG(); -->
-<!-- document.write(totalSInt); -->
-<!-- alert(totalSInt); -->
+<div id=finalG()></div>
 <br><br>
 <input type="button" onclick="process(); document.forms['myform'].elements['num1'].focus();" value="SUBMIT">
-<input type="reset" value="RESET">
-<!-- onclick="res();"  -->
-<input type="button" onClick ="finalG(); document.forms['myform'].elements['num1'].focus();" value="Final Grade">
+<input type="reset" value="Reset"/>
+<input type="button" onClick="finalG(); document.forms['myform'].elements['num1'].focus();" value="Final Grade">
 </form>
 </section>
 </body>
