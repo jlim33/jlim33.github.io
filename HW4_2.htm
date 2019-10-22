@@ -55,8 +55,9 @@ for (i = 5; i < 11; i++)
       total2 = totalDI.toLocaleString(undefined, {maximumFractionDigits: 2});
       console.log("total2: ") + console.log(total2);
       document.write("<th>" + j + " year ");
-      document.write("<th>" + i + " % ");
-      document.write("<th>" + total2 + "</th>");
+      document.write("<th>" + "___" + total2 + "__" + "</th>");
+      document.write("<th>" + "_____" + i + "_____" + " % ");
+
       // document.forms["compound"].elements["deposit"].innerHTML = total2;
       // document.forms["compound"].elements["deposit"].value = total2;
 
@@ -87,8 +88,8 @@ for (i = 5; i < 11; i++)
       <script>
 
         document.write("<th>"+ "__Year" +"</th>");
-        document.write("<th>"+ "Interest Rate" + "</th>");
         document.write("<th>"+ "Total Saving" +"<th>");
+        document.write("<th>"+ "Interest Rate" + "</th>");
         </script>
 
   </table>
@@ -96,9 +97,9 @@ for (i = 5; i < 11; i++)
   <table id ="table_main" border="solid 1px;" style="color:black;font-size:10px;background:lightgreen;">
 
       <script>
-      document.write("<th>"+ "______" +"</th>");
-      document.write("<th>"+ "_______________" + "</th>");
-      document.write("<th>"+ "______________" +"<th>"+"<br>");
+      // document.write("<th>"+ "______" +"</th>");
+      // document.write("<th>"+ "______________" +"<th>"+"<br>");
+      // document.write("<th>"+ "_______________" + "</th>");
       process();
  			</script>
 
