@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <title>CNIT 133 HOMEWORK 4 - Looping Staements EXTRA</title> -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- <link rel="stylesheet" href="c://resources/demos/style.css"> -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <style>
+  body { font-size: 2rem; color: black; background: skyblue; }
+  </style>
+  <style>
+  label {
+    display: inline-block;
+    width: 10em;
+  }
+  </style>
+  <!-- Site navigation menu -->
+  <ol class="navbar" id="links">
+  	<li><a href="HW4_1_A.htm">HW4 Part1_A</a>
+  	<li><a href="HW4_1_B.htm">HW4 Part1_B</a>
+  	<li><a href="HW4_2.htm">HW4 Part2</a>
+  	<li><a href="HW4_extra.htm">HW4 Extra</a>
+    <li><a href="links.htm">Social Change Projects</a>
+  </ol>
+
+  <style>
+    #links{
+      font-size: 1rem;
+      border:5px solid pink;
+      display:grid;
+      grid-template-columns: 150px 1fr;
+    }
+    div{
+      border:5px solid gray;
+    }
+  </style>
+  <title>CNIT 133 HOMEWORK 4 - Looping Staements EXTRA</title>
+
+  <style id = "monospace">
+
+  h1 { font-family: monospace; font-size: 36px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 6.66667px; }
+  h3 { font-family: monospace; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; }
+  p { font-family: monospace; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; }
+  blockquote { font-family: monospace; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; }
+  pre { font-family: monospace; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
+
+  </style>
+
+</head>
+<body>
+<!-- <div id="yr" class="year"></div> -->
+<script>
+function year(){
+    var test = '<table border="1px"><thead><tr><th><</th><th colspan="2">*Square*</th><th>></th><tr></thead><tbody>';
+    var tr='';
+    for(var i=0;i<9;i++){
+        tr += '<tr>';
+        for(var j=0;j<9;j++){
+            tr += '<td>'+"*"+'</td>';
+            }
+        }
+        tr +='</tr>';
+    test += tr;
+    return document.getElementById('yr').innerHTML = test;
+}
+</script>
+
+<script>
+ function calc(arg1,arg2)
+ {
+		document.write("* ");
+		// return multi;
+ }
+</script>
+  <script>
+  $( function degree() {
+    $( document ).tooltip();
+  } );
+  </script>
+  <script>
+  function process()
+  {
+  var number1, number2, number3, number4, n1, n2, n3, n4, x, i, j, k, l, emptyCount, valNum, valNumI, valNumP, size, sizeV, sizeVP;
+  var sizeValue = $( "#size" ).val();
+  console.log(sizeValue);
+  sizeVP = parseInt(sizeValue);
+  // var sizeValue = $( "#size" ).val();
+  // console.log(fehrenheitValue);
+  // fehrenheitVP = parseFloat(fehrenheitValue);
+  // x = [sizeValue]
+  if(sizeVP == "" )
+    {alert("Missing entry. Please enter value in the field.");
+  return;
+  }
+   // else if{
+     // for (i = 0; i < sizeValue; i++){
+       valNum = sizeValue;
+       valNumP = parseFloat(valNum);
+       console.log(valNumP);
+     if (isNaN(valNumP))
+     {
+     alert("Inputted value " + valNum + " is Not an integer - try again");
+     alert("The parseFloat value is " + valNumP + " - try again");
+     }
+
+        else if (valNumP < 2 || valNumP > 10)
+                      {alert("Please, make sure that you put interger between 2 ~ 10!")}
+
+
+                              // Now we set the jQuery rules. In the following example, I want my form input to be invalid if no data is entered, non-numeric data is entered, or the numeric data is not between 0 and 10.
+                              // $(document).ready(function(){
+                              // $("#size").validate({
+                              // // Rules for each input item
+                              // rules:
+                              // {
+                              // num: { required: true, number: true, min: 2, max: 10}
+                              // }
+                              // });
+                              // });
+                              // // Note that myform is the id of my form HTML element and num is the name of the input form element. I also code as num the id of the input form element because I am using getElementById in the processing. It should be fairly obvious what the above rules are testing., i.e., the input form data is required, the data must be numeric, and the data must be within the range of 0 to 10.
+                              // // Then in my processing function, I allow the processing if the data entered is valid. Thus, I would have:
+                              // function process2()
+                              // {
+                              // if ($("#size").valid()) {
+                              // return; //proper number entry validation
+                              //                         }
+                              // }
+                              else draw();
+          }
+
+// }
+
+  </script>
+
+</head>
+<body>
+
+<h1>Star Square Creator</h1>
+<p><label for="size">How big side of square do you want?:</label><input type="number" id="size" title="Please, make sure that you put interger between 2 ~ 10!"></p>
+
+<!-- <p>Hover the field to see the tooltip.</p> -->
+
+
+</body>
+<div id="box" class="box"></div>
+<script>
+function draw2(){ //star box
+    var i, j, sideS,test;
+    var sizeValue = $( "#size" ).val();
+    var test = '<table border="1px"><thead><tr><th><</th><th colspan="2">*</th><th>></th><tr></thead><tbody>';
+    var tr='';
+    for(var i=0;i<sizeValue;i++){
+        tr += '<tr>';
+        for(var j=0;j<sizeValue;j++){
+            tr += '<td>'+"* "+'</td>';
+            }
+        }
+        tr +='</tr>';
+    test += tr;
+    return document.getElementById('yr').innerHTML = test;
+}
+</script>
+
+<script>
+ function draw()
+ {
+   var sizeValue = $( "#size" ).val();
+   console.log(sizeValue);
+   // var multi, multi2;
+    	for(var k=1; k<=sizeValue; k++)
+    		{
+          var arg1 = k;
+    			var arg2 = k;
+          document.write("*  ");//first row
+// multi = [ arg1, arg2,"*  "];
+// multi2 = [ arg1, arg2,"   "];
+// console.log(multi);
+// console.log(multi2);
+
+    		}
+        document.writeln("<br>");
+        for (var i = 1; i<=sizeValue-2; i++)
+        {
+        document.write("*  ");
+          for (var j = 1; j<=sizeValue-2; j++)
+          {document.write("--");} // hollow star-box
+        document.write("*  ");
+        document.write("<br>");
+
+        }
+        // var sizeValue = $( "#size" ).val();
+        console.log(sizeValue);
+          for (var l = 1; l<=sizeValue; l++)
+          {
+            console.log(sizeValue);
+            document.write(" *  "); // last row
+          }
+    }
+</script>
+</head>
+
+<body>
+<table border="solid 2px;" style="color:black;font-size:50px;">
+	<thead><tr>
+			<script>
+			for(var j=2; j<=10; j++)
+			{
+				document.write("<th>"+j+"</th>");
+			} //dispay the first row: column number
+			</script>
+			</tr>
+	</thead>
+	<tbody>
+
+	</tbody>
+</table>
+<!-- <p><label for="long">How big square do you want to draw?</label></p>
+<textarea rows="1" id = "numberF" name="numberF"></textarea> -->
+<input type="button" onclick="process();" value="Draw star squre">
+<!-- <input type="button" onclick="draw();" value="Draw star box"> -->
+<br><br>
+<!-- input number for star square side size-->
+<!-- <input type="button" onclick="process();" value="Draw monospcae star">
+<input type="reset" value="Reset"/> -->
+<!-- </form>
+</section> -->
+<pre ""></pre>
+</body>
+
+</html>

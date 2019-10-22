@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CNIT 133 HOMEWORK 4 - Looping Staements Part 2</title>
+<ol class="navbar" id="links">
+	<li><a href="HW4_1_A.htm">HW4 Part1_A</a>
+	<li><a href="HW4_1_B.htm">HW4 Part1_B</a>
+	<li><a href="HW4_2.htm">HW4 Part2</a>
+	<li><a href="HW4_extra.htm">HW4 Extra</a>
+	<li><a href="links.htm">Social Change Projects</a>
+
+</ol>
+<style id="first">
+
+a { font-size: 1rem; color: white; background: maroon; }
+
+#head { font-size: 1rem; color: black; background: lightgreen; display: inline-grid;}
+
+</style>
+
+<style>
+	#links{
+		border:5px solid pink;
+		display:grid;
+		grid-template-columns: 150px 1fr;
+	}
+	div{
+		border:5px solid gray;
+	}
+</style>
+
+<script>
+
+
+function process()
+{
+  document.writeln("<tr>" + "</tr>" + "<br>");
+var yr = 1, ir=1, totalD=1000, totalDI=0, total=0, accumulatedI=5, accumulatedIR=ir, i, j; ai=0; total=1000, total2=1000;
+for (i = 5; i < 11; i++)
+  {
+    console.log("totalD: ") + console.log(totalD);
+    for (j=1; j<11; j++)
+    {
+      console.log("i: %") + console.log(i+"%");
+      console.log("j: yr") + console.log(j+"yr");
+      for (ai=1; ai<=j; ai++)
+        {
+          // compound interest calculator
+          ir =ir*(1 + i/100);
+          console.log("ir: ") + console.log(ir);
+        }
+      totalDI = totalD*(ir);
+      console.log("totalDI: ") + console.log(totalDI);
+      total2 = totalDI.toLocaleString(undefined, {maximumFractionDigits: 2});
+      console.log("total2: ") + console.log(total2);
+      document.write("<th>" + j + " year ");
+      document.write("<th>" + i + " % ");
+      document.write("<th>" + total2 + "</th>");
+      // document.forms["compound"].elements["deposit"].innerHTML = total2;
+      // document.forms["compound"].elements["deposit"].value = total2;
+
+      // deposit = total2;
+      // console.log(deposit);
+
+      document.writeln("<tr>" + "</tr>");
+      ir=1;
+      // return document.forms["compound"].elements["deposit"].innerHTML = deposit;
+    }
+    // document.writeln("<tr>" + "</tr>" + "<br>");
+  }
+}
+</script>
+
+</head>
+
+<body>
+<h2>CNIT 133 HOMEWORK 4 - Looping Staements Part 2</h2>
+
+<h2><a>Power of Compound Interest ( $1000 Principle )</h2>
+ <!-- <form name="compound">
+ <div id="yr" class="year"></div> -->
+<div id="head">
+ <table id ="head" border="solid 1px;" class="head" style="color:white;font-size:10px;background:maroon;">
+ 	<thead>
+ 			<!-- <script style= "color:white;font-size:10px;background:maroon;"> -->
+      <script>
+
+        document.write("<th>"+ "__Year" +"</th>");
+        document.write("<th>"+ "Interest Rate" + "</th>");
+        document.write("<th>"+ "Total Saving" +"<th>");
+        </script>
+
+  </table>
+</div>
+  <table id ="table_main" border="solid 1px;" style="color:black;font-size:10px;background:lightgreen;">
+
+      <script>
+      document.write("<th>"+ "______" +"</th>");
+      document.write("<th>"+ "_______________" + "</th>");
+      document.write("<th>"+ "______________" +"<th>"+"<br>");
+      process();
+ 			</script>
+
+  </thead>
+
+ 	</table>
+ <!-- </form> -->
+</body>
+</html>

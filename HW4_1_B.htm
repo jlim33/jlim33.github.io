@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="description" content="exercise using while statement">
+<title>While loop - odd numbers from 1 to 11</title>
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+<title>CNIT 133 HOMEWORK 4 - Looping Staements Part 1B</title>
+
+<ol class="navbar" id="links">
+	<li><a href="HW4_1_A.htm">HW4 Part1_A</a>
+	<li><a href="HW4_1_B.htm">HW4 Part1_B</a>
+	<li><a href="HW4_2.htm">HW4 Part2</a>
+	<li><a href="HW4_extra.htm">HW4 Extra</a>
+</ol>
+
+<style>
+body {background-color:#f5f5dc;
+ width: 415px; margin: 0px auto;}
+
+#mars { padding-left: 100px;}
+
+#draggable { width: 200px; background-color:skyblue; border: 1px solid red; padding:5px; }
+</style>
+
+<style>
+	#links{
+		border:5px solid pink;
+		display:grid;
+		grid-template-columns: 150px 1fr;
+	}
+	div{
+		border:5px solid gray;
+	}
+</style>
+
+</head>
+
+<body>
+<h2>CNIT 133 HOMEWORK 4 - Looping Staements Part 1B</h2>
+<section>
+
+ <script>
+          var product, sum, x;
+          product = 1;
+          x = 3;
+          sum = 0;
+
+         while   (x <= 31 ) {
+	      product *= x;
+              sum += x;
+	      x = x + 4;
+                            }
+         document.write( "<h2>While loop - every fouth numbers from 3 to 31</h2>" );
+         document.write( "<br>The Sum of the every fouth numbers from 3 to 31 inclusive is " + sum);
+         document.write( "<br>The Product of the every fouth numbers from 3 to 31 inclusive is " + product + "<br>");
+ </script>
+
+ <script>  <!-- using jQuery UI draggable again -->
+ $(function() {
+   $( "#draggable" ).draggable();
+ });
+ </script>
+
+<br><br>
+
+<div id="draggable">
+ <p>Try to drag this div around</p>
+</div>
+
+<p>This paragraph is not draggable as it's not inside the draggable div</p>
+
+</section>
+</body>
+</html>
