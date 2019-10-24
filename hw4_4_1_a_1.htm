@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="description" content="exercise using for statement">
+<title>CNIT 133 HOMEWORK 4 - Looping Staements Part 1A</title>
+
+<!-- jQuery UI CSS file, jQuery .js file, and jQuery UI .js file -->
+<link rel="stylesheet" href="\resources/demos/style.css">
+
+<!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<ol class="navbar" id="links">
+	<li><a href="HW4_1_A.htm">HW4 Part1_A</a>
+	<li><a href="HW4_1_B.htm">HW4 Part1_B</a>
+	<li><a href="HW4_2.htm">HW4 Part2</a>
+	<li><a href="HW4_extra.htm">HW4 Extra</a>
+	<li><a href="links.htm">Social Change Projects</a>
+
+</ol>
+
+<script>
+$(function() {
+   $( "#draggable" ).draggable();
+});
+</script>
+
+</head>
+<body>
+<h2>CNIT 133 HOMEWORK 4 - Looping Staements Part 1A</h2>
+<section>
+<div class="content">
+
+<h2>Example: for statement</h2>
+
+<script>
+
+  var sum = 0;
+
+  for ( var number = 5; number <= 20; number += 3 )
+  {
+     sum += number;
+		 // document.write(sum) + document.write(" + ");
+  }
+
+  document.write( "The sum of the every third integers " +  "from 5 to 20 inclusive is " +
+                       sum + ".<br>" );
+</script>
+
+<script>
+
+  var product = 1;
+
+  for ( var number = 5; number <= 20; number += 3 )
+  {
+     product *= number;
+		 // document.write(product) + document.write(" + ");
+
+  }
+  document.write("The product of the every third integers " +  "from 5 to 20 inclusive is " +
+                       product );
+</script>
+
+<div id="draggable">
+<p>This is a draggable div</p>
+</div>
+
+</div>  <!-- end of main div -->
+</section>
+
+</body>
+</html>
