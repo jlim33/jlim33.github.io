@@ -4,21 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="description" content="exercise pulldown menu">
-
 <title>Pulldown Menu as Navigation Element Example</title>
-
-<script>
-function goToNewPage(myForm) {
-    var myDestination = myForm.destinationList.options[myForm.destinationList.selectedIndex].value;
-    window.location = myDestination;
-}
-</script>
-<ol class="navbar" id="links">
-	<li><a href="HW5_1.htm">HW5 Part1</a>
-	<li><a href="HW5_2.htm">HW5 Part2</a>
-	<li><a href="HW5_3.htm">HW5 Part3</a>
-	<li><a href="links.htm">Social Change Projects</a>
-</ol>
 <style>
 main {
 	background-color:beige;
@@ -39,6 +25,18 @@ div{
 		border:5px solid gray;
 	}
 </style>
+<script>
+function goToNewPage(myForm) {
+    var myDestination = myForm.destinationList.options[myForm.destinationList.selectedIndex].value;
+    window.location = myDestination;
+}
+</script>
+<ol class="navbar" id="links">
+	<li><a href="HW5_1.htm">HW5 Part1</a>
+	<li><a href="HW5_2.htm">HW5 Part2</a>
+	<li><a href="HW5_3.htm">HW5 Part3</a>
+	<li><a href="links.htm">Social Change Projects</a>
+</ol>
 </head>
 <body>
 <h2>CNIT 133 HOMEWORK 5 - Part 2</h2>
