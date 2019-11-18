@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="description" content="exercise check box, botton, and pulldown menu">
+<title>CNIT 133 HOMEWORK 5 - Part 1</title>
+
+<ol class="navbar" id="links">
+	<li><a href="HW5_1.htm">HW5 Part1</a>
+	<li><a href="HW5_2.htm">HW5 Part2</a>
+	<li><a href="HW5_3.htm">HW5 Part3</a>
+	<li><a href="links.htm">Social Change Projects</a>
+
+</ol>
+<style>
+body {background-color:#f5f5dc;}
+
+.content {
+	width:400px;
+	margin: 0px auto; padding: 15px;
+        text-align: left; /* Counteract to IE/Win Hack */
+	background-color:#ffffff;
+         }
+</style>
+
+<style>
+	#links{
+		border:5px solid pink;
+		display:grid;
+		grid-template-columns: 150px 1fr;
+	}
+	div{
+		border:5px solid gray;
+	}
+</style>
+
+<script>
+
+ function valInput() {
+
+	 // get user input from familytree form:
+	 var firstName = document.forms["familytreeForm"]["firstNameInput"].value;
+	 console.log(firstName);
+	 var lastName = document.forms["familytreeForm"]["lastNameInput"].value;
+	 console.log(lastName);
+	 var userEmail = document.forms["familytreeForm"]["emailInput"].value;
+	 console.log(userEmail);
+
+	 var genderSelect = document.forms["familytreeForm"]["genderInput"].value;
+	 console.log(genderSelect);
+
+	 var residentChoice = [];
+	 var residentSelect = document.getElementsByName("resident");
+	 console.log(residentSelect);
+
+	 for (var i = 0; i< residentSelect.length; i++ ) {
+		if (residentSelect[i].checked) {
+			residentChoice.push(residentSelect[i]);
+			console.log(residentChoice);
+			console.log(residentChoice.length);
+
+		}
+	}
+	 var countryChoice = document.forms["familytreeForm"]["country"].value;
+	 console.log(countryChoice);
+	 var relationshipChoice = document.forms["familytreeForm"]["relationshipList"].value;
+	 console.log(relationshipList);
+
+	 // validate entry:
+	 if (firstName == "" || lastName == "") {
+		 return alert("Empty entry. Please, fill every entry field!");
+	 }
+
+	 if (userEmail == "") {
+		 return alert("Please, provide your email address, so I can send you updates for Lim's familytree!");
+	 }
+
+	 if (genderSelect == "") {
+			 return alert("Please, select at least one choice for your gender!")
+	 }
+
+	 if (residentChoice.length == 0) {
+		 return alert("Please, select your resident city!");
+	 }
+
+	 if (countryChoice == "") {
+	 	return alert("Please, select your country!");
+	 }
+
+	 if (relationshipChoice == "noSelection") {
+		 return alert("Please, select your role or relationship from the list!");
+	 }
+
+	 // reset
+	 document.forms["familytreeForm"].reset();
+
+	 // display message to let them know your entry is properly submitted
+	 return alert("Thank you so much for your submission! You've been entered into Lim's familytree databases. I will send updates as soon as I collect every Lim's family members!");
+
+ }
+
+</script>
+</head>
+
+<body>
+<h2>CNIT 133 HOMEWORK 5 - Part 1</h1>
+
+<h1>Lim's familytree data entry</h1>
+
+<main>
+
+	<section>
+<!-- get user input -->
+	<p id="explaination">Please, provide your name, and email address! In addtion to that, select your gender, resident city or cities, country, and your role in family from below list!</p>
+
+	<form name="familytreeForm">
+
+		<label>Provide your personal info:</label>
+		<p>First Name:</p>
+		<input name="firstNameInput" type="text"><br>
+		<p>Last Name:</p>
+		<input name="lastNameInput" type="text"><br>
+		<p>Email Address:</p>
+		<input name="emailInput" type="text"><br>
+
+		<br><label>Select your gender:</label><br>
+		<input type="radio" name="genderInput" value="Male">Male<br>
+		<input type="radio" name="genderInput" value="Female">Female<br>
+		<input type="radio" name="genderInput" value="Gender neutral">Gender neutral<br>
+		<!-- <input class="noneInput" type="checkbox" name="genderInput" value="none">None of the Above<br> -->
+
+		<br><label>Select your resident city:</label><br>
+		<input type="checkbox" name="resident" value="Jeonjoo">Jeonjoo<br>
+		<input type="checkbox" name="resident" value="Seoul">Seoul<br>
+		<input type="checkbox" name="resident" value="Yongin">Yongin<br>
+		<input type="checkbox" name="resident" value="San Francisco">San Francisco<br>
+		<input type="checkbox" name="resident" value="Los Angeles">Los Angeles<br>
+		<input type="checkbox" name="resident" value="Toronto">Toronto<br>
+		<input class="noneInput" type="checkbox" name="residnet" value="none">None of the Above<br>
+
+
+		<br><label>Select your country:</label><br>
+		<input type="radio" name="country" value="South Korea">South Korea<br>
+		<input type="radio" name="country" value="United States America">United States America<br>
+		<input type="radio" name="country" value="Canada">Canada<br>
+		<input class="noneInput" type="radio" name="country" value="none">None of Above<br>
+
+
+
+		<br><label for="relationshipList">Choose Your role or relationship in your family:</label>
+		<select class="noneInput" id="relationshipList" name="relationshipList">
+			<option value="noSelection">Choose Your role or relationship in your family:</option>
+			<option value="Father">Father</option>
+			<option value="Mother">Mother</option>
+			<option value="Son">Son</option>
+			<option value="Daughter">Daughter</option>
+			<option value="none">None of above</option>
+		</select>
+		<div id="submitButton">
+			<input type="button" value="Submit Form" onclick="valInput()"><input value="RESET ALL" type="reset">
+		</div>
+
+	</form>
+
+</section>
+
+</main>
+</body>
+</html>
