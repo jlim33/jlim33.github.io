@@ -6,15 +6,11 @@
 <meta name="description" content="exercise arrays">
 <title>CNIT 133 HOMEWORK 5 - Part 1</title>
 
-<ol class="navbar" id="links">
-	<li><a href="HW5_1.htm">HW5 Part1</a>
-	<li><a href="HW5_2.htm">HW5 Part2</a>
-	<li><a href="HW5_3.htm">HW5 Part3</a>
-	<li><a href="links.htm">Social Change Projects</a>
-
-</ol>
 <style>
-
+main {
+				background-color:beige;
+				padding:2em;
+			}
 .content {
 	width:400px;
 	margin: 0px auto; padding: 15px;
@@ -31,6 +27,7 @@
 		border:5px solid gray;
 	}
 </style>
+
 <script>
 
 //state info process 2 dimemsional array
@@ -100,15 +97,20 @@ function reset() {
 </head>
 
 <body>
+
+	<ol class="navbar" id="links">
+		<li><a href="HW5_1.htm">HW5 Part1</a>
+		<li><a href="HW5_2.htm">HW5 Part2</a>
+		<li><a href="HW5_3.htm">HW5 Part3</a>
+		<li><a href="links.htm">Social Change Projects</a>
+	</ol>
+
 <h2>CNIT 133 HOMEWORK 5 - Part 3</h2>
 
 <h1>State's Information</h1>
-
 <main>
-
-	<section>
-
-	<p id="explaination">Please, Type the name of state that you want to know about!</p>
+<section>
+	<h2>Please, Type the name of state that you want to know about!</h2>
 
 	<form name="stateNameForm">
 <!-- ask user input -->
@@ -132,13 +134,8 @@ function reset() {
 <!-- stae info and reset button dispay -->
 	        <input type="button" value="State Info" onclick="valInput()">
 	        <input type="reset" value="RESET" onclick="reset()">
-
 	      </form>
-
-
-	    </section>
-
-	  </main>
-
+</section>
+</main>
 </body>
 </html>
