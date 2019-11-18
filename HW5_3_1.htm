@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="description" content="exercise arrays">
+<title>CNIT 133 HOMEWORK 5 - Part 1</title>
+
+<ol class="navbar" id="links">
+	<li><a href="HW5_1.htm">HW5 Part1</a>
+	<li><a href="HW5_2.htm">HW5 Part2</a>
+	<li><a href="HW5_3.htm">HW5 Part3</a>
+	<li><a href="links.htm">Social Change Projects</a>
+
+</ol>
+<style>
+
+.content {
+	width:400px;
+	margin: 0px auto; padding: 15px;
+        text-align: left; /* Counteract to IE/Win Hack */
+	background-color:#ffffff;
+         }
+
+	#links{
+		border:5px solid pink;
+		display:grid;
+		grid-template-columns: 150px 1fr;
+	}
+	div{
+		border:5px solid gray;
+	}
+</style>
+<script>
+
+//state info process 2 dimemsional array
+function stateInfoProcess() {
+
+	var stateInfo = [
+		["AL", "Alabama", "Montgomery", "4,887,871"],
+		["AK", "Alaska", "Juneau", "737,438"],
+		["AR", "Arkansas", "Little Rock", "3,010,825"],
+		["AZ", "Arizona",	"Phoenix", "7,171,646"],
+		["CA", "California", "Sacramento", "39,557,045"],
+		["CO", "Colorado", "Denver", "5,694,564"]
+	];
+// get state name user input
+	var stateNameInput = document.getElementById("stateNameInput").value;
+	console.log(stateNameInput);
+// convert user input to lowercase
+	stateNameInput = stateNameInput.toLowerCase();
+	console.log(stateNameInput);
+	stateAbbInput = stateNameInput.toLowerCase();
+	console.log(stateAbbInput);
+// compare user input with database
+	for (let i = 0; i < stateInfo.length; i++) {
+		if (stateInfo[i][0].toLowerCase() == stateNameInput ||
+				stateInfo[i][1].toLowerCase() == stateAbbInput) {
+					document.getElementById("stateAbb").value = stateInfo[i][0];
+					document.getElementById("stateName").value = stateInfo[i][1];
+					document.getElementById("stateCapital").value = stateInfo[i][2];
+					document.getElementById("statePop").value = stateInfo[i][3];
+					document.getElementById("MessageBox").innerHTML = "Thanks for your inquiry, here is the information you requested:";
+					return
+			 }
+	}
+// alert wrong input
+	alert("Invalid Input: either you entered a state not in our list, or you enter wrong entry.");
+	// clearMessageBox();
+	document.forms.stateNameForm.reset();
+	document.getElementById("MessageBox").innerHTML = "";
+
+	return;
+}
+// reset
+function reset() {
+ document.forms.stateNameForm.reset();
+ document.getElementById("MessageBox").innerHTML = "";
+}
+
+</script>
+<script>
+
+ function valInput() {
+
+	 // get user input
+	 var stateNameInput = document.getElementById("stateNameInput").value;
+	 console.log(stateNameInput);
+
+	 // alert empty entry
+	 if (stateNameInput == "") {
+		 return alert("Empty entry. Please, type the name of state that you want to know about!");
+	 }
+
+	 return stateInfoProcess();
+
+ }
+
+</script>
+</head>
+
+<body>
+<h2>CNIT 133 HOMEWORK 5 - Part 3</h2>
+
+<h1>State's Information</h1>
+
+<main>
+
+	<section>
+
+	<p id="explaination">Please, Type the name of state that you want to know about!</p>
+
+	<form name="stateNameForm">
+<!-- ask user input -->
+		<p>State Name or abbreviation here:</p>
+		<input name="stateName" id="stateNameInput" type="text"><br>
+<!-- display message -->
+	        <div id="MessageBox"></div>
+<!-- display state info -->
+	        <table>
+	          <tr>
+							<p>State Abbreviation:</p>
+							<textarea rows="1" id = "stateAbb"></textarea>
+							<p>State Name:</p>
+							<textarea rows="1" id = "stateName"></textarea>
+							<p>State Capital:</p>
+							<textarea rows="1" id = "stateCapital"></textarea>
+							<p>State Population:</p>
+							<textarea rows="1" id = "statePop"></textarea>
+						</tr>
+	        </table>
+<!-- stae info and reset button dispay -->
+	        <input type="button" value="State Info" onclick="valInput()">
+	        <input type="reset" value="RESET" onclick="reset()">
+
+	      </form>
+
+
+	    </section>
+
+	  </main>
+
+</body>
+</html>
