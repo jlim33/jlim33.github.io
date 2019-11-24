@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Objects">
+<title>CNIT 133 HOMEWORK 6 - Part 1</title>
+
+<style>
+main {
+				background-color:beige;
+				padding:2em;
+			}
+.content {
+	width:400px;
+	margin: 0px auto; padding: 15px;
+        text-align: left; /* Counteract to IE/Win Hack */
+	background-color:#ffffff;
+         }
+
+	#links{
+		border:5px solid pink;
+		display:grid;
+		grid-template-columns: 150px 1fr;
+	}
+	div{
+		border:5px solid gray;
+	}
+</style>
+
+<script>
+
+//state info process 2 dimemsional array
+function roundProcess() {
+
+// get user input
+	var userInput = document.getElementById("floatingNumberInput").value;
+	console.log(userInput);
+	// userInput = paraFloat(userInput);
+	console.log(userInput);
+	console.log(userInput.value);
+	console.log(userInput.length);
+
+// make user user input with condition (at least 4 decimal positions)
+	for (let i = 0; i < userInput.length; i++) {
+		if (stateInfo[i][0].toLowerCase() == stateNameInput ||
+				stateInfo[i][1].toLowerCase() == stateAbbInput) {
+					document.getElementById("stateAbb").value = stateInfo[i][0];
+					document.getElementById("stateName").value = stateInfo[i][1];
+					document.getElementById("stateCapital").value = stateInfo[i][2];
+					document.getElementById("statePop").value = stateInfo[i][3];
+					document.getElementById("MessageBox").innerHTML = "Thanks for your inquiry, here is the information you requested:";
+					return
+			 }
+	}
+// alert wrong input
+	alert("Invalid Input: either you entered a state not in our list, or you enter wrong entry.");
+	// clearMessageBox();
+	document.forms.stateNameForm.reset();
+	document.getElementById("MessageBox").innerHTML = "";
+
+	return;
+}
+// reset
+function reset() {
+ document.forms.floatingNumberForm.reset();
+ document.getElementById("MessageBox").innerHTML = "";
+}
+
+</script>
+<script>
+
+ function valInput() {
+
+	 // get user input floating number
+	 var floatingNumberInput = document.getElementById("floatingNumberInput").value;
+	 console.log(floatingNumberInput);
+
+	 // alert empty entry
+	 if (floatingNumberInput == "") {
+		 alert("Empty entry. Please, enter a floating-point number with AT LEAST 4 decimal positions (no less than that)!");
+		 return reset();
+	 }
+
+	 return roundProcess();
+
+ }
+
+</script>
+</head>
+
+<body>
+
+	<ol class="navbar" id="links">
+		<li><a href="HW5_1.htm">HW5 Part1</a>
+		<li><a href="HW5_2.htm">HW5 Part2</a>
+		<li><a href="HW5_3.htm">HW5 Part3</a>
+		<!-- <li><a href="links.htm">Social Change Projects</a> -->
+	</ol>
+
+<h2>CNIT 133 HOMEWORK 6 - Part 1</h2>
+
+<h1>Enter a floating-point number with AT LEAST 4 decimal positions (no less than that).</h1>
+<main>
+<section>
+	<!-- <h2>Please, Type the name of state that you want to know about!</h2> -->
+
+	<form name="floatingNumberForm">
+<!-- ask user input -->
+		<p>Floating Number:</p>
+		<input name="floatingNumber" id="floatingNumberInput" type="text"><br>
+<!-- display message -->
+	        <div id="MessageBox"></div>
+<!-- display state info -->
+	         		<h3>Round / Square Root Conversion:</h3>
+							<h2>Round to the nearest integer:</h2>
+							<textarea rows="1" id = "roundInteger"></textarea>
+							<h2>Square Root and round to the nearest integer:</h2>
+							<textarea rows="1" id = "squareRoot"></textarea>
+							<h2>Round to the nearest tenths position:</h2>
+							<textarea rows="1" id = "roundTenths"></textarea>
+							<h2>Round to the nearest hundredths position:</h2>
+							<textarea rows="1" id = "roundHundredths"></textarea>
+							<h2>Round to the nearest thousandths position:</h2>
+							<textarea rows="1" id = "roundThousandths"></textarea>
+<!-- stae info and reset button dispay -->
+	       <br><input type="button" value="RESULT" onclick="valInput()">
+	        	 <input type="reset" value="RESET" onclick="reset()">
+	      </form>
+</section>
+</main>
+</body>
+</html>
