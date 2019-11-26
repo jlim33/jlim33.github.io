@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Objects">
+<title>CNIT 133 HOMEWORK 6 - Part 1</title>
+
+<style>
+main {
+				background-color:beige;
+				padding:2em;
+			}
+.content {
+	width:400px;
+	margin: 0px auto; padding: 15px;
+        text-align: left; /* Counteract to IE/Win Hack */
+	background-color:#ffffff;
+         }
+
+	#links{
+		border:5px solid pink;
+		display:grid;
+		grid-template-columns: 150px 1fr;
+	}
+	div{
+		border:5px solid gray;
+	}
+</style>
+
+<script>
+
+//get results
+function roundProcess() {
+
+// get user input
+	var userInput = document.getElementById("floatingNumberInput").value;
+	console.log(userInput);
+//	varify floatingNumber input
+var is_dot_ok=userInput.indexOf('.');
+if (is_dot_ok==-1)
+	{
+		alert("Wrong entry!!! Please, enter a floating-point number with AT LEAST 4 decimal positions (no less than that)!");
+		document.getElementById("MessageBox").innerHTML = "Not a floating number!!! Please, enter a floating-point number with AT LEAST 4 decimal positions (no less than that)!";
+		return reset();
+	}
+
+	userInputP = parseFloat(userInput);
+	console.log(userInputP);
+	var mySplitResult = userInput.split(".");
+	var mySplitResult1 = mySplitResult[1];
+	console.log(mySplitResult1.length);
+
+// make user user input with condition (at least 4 decimal positions)
+	// for (let i = 0; i < mySplitResult1.length; i++) {
+		if (mySplitResult1.length < 4)
+		 {
+			 		alert("Too short decimal positions entry!!! Empty entry. Please, enter a floating-point number with AT LEAST 4 decimal positions (no less than that)!");
+					document.getElementById("MessageBox").innerHTML = "Too short decimal positions entry!!! Empty entry. Please, enter a floating-point number with AT LEAST 4 decimal positions (no less than that)!";
+					return reset();
+			 }
+			  var roundInteger =  Math.round(userInputP);
+				document.getElementById("roundInteger").innerHTML = roundInteger;
+				var squareRoot =  Math.sqrt(userInputP);
+				var squareRootRound = Math.round(squareRoot);
+				document.getElementById("squareRoot").innerHTML = squareRootRound;
+				// var floorTenths =  Math.floor( userInputP * 10 + .5 ) / 10;
+				var floorTenths =  userInputP.toFixed(1);
+				document.getElementById("roundTenths").innerHTML = floorTenths;
+				// var floorHundredths =  Math.floor( userInputP * 100 + .5 ) / 100;
+				var floorHundredths =  userInputP.toFixed(2);
+				document.getElementById("roundHundredths").innerHTML = floorHundredths;
+				// var floorThousandths =  Math.floor( userInputP * 1000 + .5 ) / 1000;
+				var floorThousandths =  userInputP.toFixed(3);
+				document.getElementById("roundThousandths").innerHTML = floorThousandths;
+
+	}
+	else
+	 {
+		 // display user input
+		 	document.getElementById("MessageBox").innerHTML = userInputP;
+		 	return
+	}
+
+}
+// reset
+function reset() {
+ document.forms.floatingNumberForm.reset();
+ document.getElementById("roundInteger").innerHTML = "";
+ document.getElementById("squareRoot").innerHTML = "";
+ document.getElementById("roundTenths").innerHTML = "";
+ document.getElementById("roundHundredths").innerHTML = "";
+ document.getElementById("roundThousandths").innerHTML = "";
+ document.getElementById("MessageBox").innerHTML = "";
+}
+
+</script>
+<script>
+
+ function valInput() {
+
+	 // get user input floating number
+	 var floatingNumberInput = document.getElementById("floatingNumberInput").value;
+	 console.log(floatingNumberInput);
+
+	 // alert empty entry
+	 if (floatingNumberInput == "") {
+		 alert("Empty entry. Please, enter a floating-point number with AT LEAST 4 decimal positions (no less than that)!");
+		 return reset();
+	 }
+
+	 return roundProcess();
+
+ }
+
+</script>
+</head>
+
+<body>
+
+	<ol class="navbar" id="links">
+		<li><a href="HW5_1.htm">HW6 Part1</a>
+		<li><a href="HW5_2.htm">HW6 Part2</a>
+		<li><a href="HW5_3.htm">HW6 Part3</a>
+		<!-- <li><a href="links.htm">Social Change Projects</a> -->
+	</ol>
+
+<h2>CNIT 133 HOMEWORK 6 - Part 1</h2>
+
+<h1>Enter a floating-point number with AT LEAST 4 decimal positions (no less than that).</h1>
+<main>
+<section>
+
+	<form name="floatingNumberForm">
+<!-- ask user input -->
+		<p>Floating Number:</p>
+		<input name="floatingNumber" id="floatingNumberInput" type="text"><br>
+<!-- display message -->
+	        <div id="MessageBox"></div>
+<!-- display round results -->
+	         		<h3>Round / Square Root Conversion:</h3>
+							<h2>Round to the nearest integer:</h2>
+							<textarea rows="1" id = "roundInteger"></textarea>
+							<h2>Square Root and round to the nearest integer:</h2>
+							<textarea rows="1" id = "squareRoot"></textarea>
+							<h2>Round to the nearest tenths position:</h2>
+							<textarea rows="1" id = "roundTenths"></textarea>
+							<h2>Round to the nearest hundredths position:</h2>
+							<textarea rows="1" id = "roundHundredths"></textarea>
+							<h2>Round to the nearest thousandths position:</h2>
+							<textarea rows="1" id = "roundThousandths"></textarea>
+<!-- result and reset button dispay -->
+	       <br><input type="button" value="RESULT" onclick="valInput()">
+	        	 <input type="reset" value="RESET" onclick="reset()">
+	      </form>
+</section>
+</main>
+</body>
+</html>

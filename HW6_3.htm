@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Objects">
+<title>CNIT 133 HOMEWORK 6 - Part 3</title>
+
+<style>
+main {
+				background-color:beige;
+				padding:2em;
+			}
+.content {
+	width:400px;
+	margin: 0px auto; padding: 15px;
+        text-align: left; /* Counteract to IE/Win Hack */
+	background-color:#ffffff;
+         }
+
+	#links{
+		border:5px solid pink;
+		display:grid;
+		grid-template-columns: 150px 1fr;
+	}
+	div{
+		border:5px solid gray;
+	}
+</style>
+<!-- jQuery Mask  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+<!-- <script $('input[name="phoneNumber"]').mask('(000) 000-0000');></script> -->
+<script>
+//correct phone number input
+function checkExp()
+ {
+// jQuery Mask phoneNumber automatic correction
+	 $('input[name="phoneNumber"]').mask('(000) 000-0000');
+	 var errMsg = "Invalid phone #";
+	 var phoneNumber = document.getElementById('userInput').value;
+	 console.log(phoneNumber);
+
+				 var mySplitResult = phoneNumber.split(" ");
+				 var mySplitResult0 = mySplitResult[0];
+				 var mySplitResult1 = mySplitResult[1];
+				 console.log(mySplitResult0);
+				 console.log(mySplitResult1);
+
+				 console.log(mySplitResult0.length);
+				 console.log(mySplitResult1.length);
+				 // alert(parts2[1] + "," + parts2[2] + "," + parts2[3]); // returns 123,456,7890
+				 // result = "(" + parts[1] + ") " + parts[2] + "-" + parts[3];
+				 result = mySplitResult0 + mySplitResult1;
+
+				 alert("Valid format");
+				 // document.getElementById("MessageBox").innerHTML = result;
+				 document.getElementById("areaCode").innerHTML = mySplitResult0;
+				 document.getElementById("phoneNumber7").innerHTML = mySplitResult1;
+			 }
+
+// validate empty entry
+function validate()
+{
+	 var userInput=document.getElementById("userInput").value;
+	 	 console.log(userInput);
+		 console.log(userInput.length);
+
+//verify empty entry and reset
+	 if (userInput=="")
+	 {
+		 var empty="Enpty entry. Please, enter your phone number!!!";
+		 alert(empty);
+		 return reset();
+	 }
+	 else if (userInput.length !=10 )
+	  {
+			console.log(userInput.length);
+			var wrongEntry ="Wrong entry. Please, put 10 digit phone number, including area code!!!";
+	 		alert(wrongEntry);
+			return reset();
+	 }
+	 else
+	  {
+	  	 checkExp();
+		}
+}
+
+// reset
+function reset()
+ {
+ document.getElementById("MessageBox").innerHTML = "";
+ document.getElementById("userInput").innerHTML = "";
+ document.getElementById("areaCode").innerHTML = "";
+ document.getElementById("phoneNumber7").innerHTML = "";
+ document.forms.userInputForm.reset();
+
+}
+
+</script>
+</head>
+
+<body>
+
+	<ol class="navbar" id="links">
+		<li><a href="HW6_1.htm">HW6 Part1</a>
+		<li><a href="HW6_2.htm">HW6 Part2</a>
+		<li><a href="HW6_3.htm">HW6 Part3</a>
+		<!-- <li><a href="links.htm">Social Change Projects</a> -->
+	</ol>
+
+<h2>CNIT 133 HOMEWORK 6 - Part 3</h2>
+
+<h1>Enter your phone number!</h1>
+<main>
+<section>
+
+	<form name="userInputForm">
+<!-- ask user input -->
+		<p>phone number:</p>
+
+		<label>
+
+			<input type="text" name="phoneNumber" id="userInput" data-mask="000 000 0000" />
+
+		</label>
+<!-- display message -->
+	        <div id="MessageBox"></div>
+					<h2>Area Code:</h2>
+					<textarea rows="1" id = "areaCode"></textarea>
+					<h2>Phone Number:</h2>
+					<textarea rows="1" id = "phoneNumber7"></textarea>
+<!-- display result and reset button -->
+     <br><input type="button" value="RESULT" onclick="validate()">
+    	 		<input type="reset" value="RESET" onclick="reset()">
+	      </form>
+</section>
+</main>
+</body>
+</html>

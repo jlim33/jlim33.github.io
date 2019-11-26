@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Objects">
+<title>CNIT 133 HOMEWORK 6 - Part 2</title>
+
+<style>
+main {
+				background-color:beige;
+				padding:2em;
+			}
+.content {
+	width:400px;
+	margin: 0px auto; padding: 15px;
+        text-align: left; /* Counteract to IE/Win Hack */
+	background-color:#ffffff;
+         }
+
+	#links{
+		border:5px solid pink;
+		display:grid;
+		grid-template-columns: 150px 1fr;
+	}
+	div{
+		border:5px solid gray;
+	}
+</style>
+
+<script>
+// search character
+function search()
+{
+	 var count=0;
+
+	 var userInput=document.getElementById("userInput").value;
+	 	 console.log(userInput);
+//verify empty entry and reset without clearing the user typed sentences
+	 if (userInput=="")
+	 {
+		 var empty="Enpty entry. Please, put a character which you want to search!!!";
+		 // document.write(empty);
+		 alert("Enpty entry. Please, put a character which you want to search!!!");
+		 return reset2();
+	 }
+	 else
+	  {
+		userInput=document.getElementById("userInput").value.toLowerCase().charAt( 0 );
+		var userInput=userInput.toLowerCase();
+		console.log(userInput);
+  	var stringToSearch=document.getElementById("userTypedSentences").value;
+		console.log(stringToSearch);
+
+	 // var stringToSearch=document.getElementById("userTypedSentences").value.toLowerCase().charAt( 0 );
+	 var stringToSearch=stringToSearch.toLowerCase();
+	 console.log(stringToSearch);
+	 var count=0;
+	 console.log(stringToSearch.length);
+
+		for (i=0; i < stringToSearch.length; i++)
+				{
+							console.log(i);
+							console.log(stringToSearch.charAt(i));
+					 if (stringToSearch.charAt(i) == userInput)
+						{
+							count++;
+							console.log(count);
+						}
+				 }
+	 if ( count == 0 )
+		{
+			document.getElementById("MessageBox").innerHTML="'" + userInput + "' not found";
+			console.log(document.getElementById("MessageBox").value);
+			var messageBox = document.getElementById("MessageBox").value;
+			console.log(messageBox);
+			// document.forms.userInputForm.getElementById('MessageBox').value=messageBox;
+// assemble HTML to pump into new window:
+
+var messageBox = "<html>\n";
+messageBox += "<head>\n";
+messageBox += "<title>Popup Window</title>\n";
+messageBox += "</head>\n";
+messageBox += "<body>\n";
+messageBox += "<div style='margin:0 auto;'>\n";
+messageBox += "<p><strong>" + userInput + " not found!!!</strong></p>\n";
+messageBox += "<input type='button' value='Close Window' onclick='window.close()'>\n";
+messageBox += "</div>\n";
+messageBox += "</body>\n";
+messageBox += "</html>";
+
+// open window on the upperleft of the screen
+
+var newWindow = window.open("", "new_window",
+"top=1,left=1,width=300,height=100");
+
+// have browser focus on window
+
+newWindow.focus();
+
+// pump html into to this new opened window
+
+newWindow.document.write(messageBox);
+
+// tell browser that newWindow document is finished loading
+
+newWindow.document.close();
+}
+
+	 else
+	  {
+			var messageBox=count +
+				 " occurrence(s) of '" + userInput + "' found";
+			document.getElementById("MessageBox").innerHTML=messageBox;
+
+			// document.getElementById("MessageBox").value=count +
+			// 	 " occurrence(s) of " + userInput + " found";
+			console.log(document.getElementById("MessageBox").innerHTML);
+			console.log(messageBox);
+
+			// document.forms.userInputForm.getElementById("MessageBox").value=messageBox;
+
+			return
+		}
+}
+}
+// reset
+function reset()
+ {
+ document.forms.userInputForm.reset();
+ document.getElementById("userInput").innerHTML = "";
+ document.getElementById("userTypedSentences").innerHTML = "";
+ document.getElementById("MessageBox").innerHTML = "";
+}
+// reset without retyping sentences
+function reset2()
+ {
+ // document.forms.userInputForm.reset();
+ document.getElementById("userInput").innerHTML = "";
+ // document.getElementById("userTypedSentences").innerHTML = "";
+ document.getElementById("MessageBox").innerHTML = "";
+}
+
+</script>
+</head>
+
+<body>
+
+	<ol class="navbar" id="links">
+		<li><a href="HW6_1.htm">HW6 Part1</a>
+		<li><a href="HW6_2.htm">HW6 Part2</a>
+		<li><a href="HW6_3.htm">HW6 Part3</a>
+		<!-- <li><a href="links.htm">Social Change Projects</a> -->
+	</ol>
+
+<h2>CNIT 133 HOMEWORK 6 - Part 2</h2>
+
+<h1>Enter a search index character which you want search in below sentences.</h1>
+<main>
+<section>
+
+	<form name="userInputForm">
+<!-- ask user input -->
+		<p>Search Index character:</p>
+		<input name="userInput" id="userInput" type="text"><br>
+		<p>Type sentences:</p>
+		<input name="userTypedSentences" id="userTypedSentences" type="text"><br>
+<!-- display message -->
+	        <div id="MessageBox"></div>
+<!-- display result and reset button -->
+     <br><input type="button" value="RESULT" onclick="search()">
+    	 		<input type="reset" value="RESET" onclick="reset()">
+	      </form>
+</section>
+</main>
+</body>
+</html>
