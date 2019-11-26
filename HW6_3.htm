@@ -57,6 +57,7 @@ function checkExp()
 				 // document.getElementById("MessageBox").innerHTML = result;
 				 document.getElementById("areaCode").innerHTML = mySplitResult0;
 				 document.getElementById("phoneNumber7").innerHTML = mySplitResult1;
+	 			return $('input[name="phoneNumber"]').mask('0000000000');
 			 }
 
 // validate empty entry
@@ -89,6 +90,7 @@ function validate()
 // reset
 function reset()
  {
+   $('input[name="phoneNumber"]').mask('0000000000');
  document.getElementById("MessageBox").innerHTML = "";
  document.getElementById("userInput").innerHTML = "";
  document.getElementById("areaCode").innerHTML = "";
