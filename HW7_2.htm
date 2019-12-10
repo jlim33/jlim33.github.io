@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.dropbtn {
+    background-color: blue;
+    color: white;
+    padding: 1em;
+    font-size: 1.2em;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #cccccc;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 0.7em 1em;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #333; color: white; font-weight: bold;}
+
+.show {display:block;}
+</style>
+</head>
+<body>
+
+<h2>Homework 1</h2>
+<p>Click on the button to open the other homeworks dropdown menu.</p>
+
+<div class="dropdown">
+<button onclick="myFunction()" class="dropbtn">Dropdown</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="HW2_1.htm">HW2 Part1</a>
+    <a href="HW3_1.htm">HW3 Part1</a>
+    <a href="HW4_1.htm">HW4 Part1</a>
+    <a href="HW5_1.htm">HW5 Part1</a>
+    <a href="HW6_1.htm">HW6 Part1</a>
+    <!-- <a href="#contact">Contact</a> -->
+  </div>
+</div>
+
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+</body>
+</html>
