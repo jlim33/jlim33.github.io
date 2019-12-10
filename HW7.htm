@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="description" content="CNIT 133 Homework 7 - Object Model and Event Model, using jQuery">
+<title>CNIT 133 Homework 7 - Object Model and Event Model</title>
+<link href="faqjquery.css" rel="stylesheet">
+<style>
+h2 {
+	background: url(open.png) no-repeat 0 11px;
+	padding: 10px 0 0 25px;
+	cursor: pointer;
+}
+h2.close {
+	background-image: url(close.png);
+}
+.answer {
+	margin-left: 25px;
+}
+</style>
+
+<!-- Note that you need jQuery version 1.7.1 here - do not use versiom 1.9.1 or later -->
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+ $('.answer').hide();
+ $('.main h2').toggle(
+		function() {
+	       $(this).next('.answer').slideDown();
+		   $(this).addClass('close');
+		},
+		function() {
+		   $(this).next('.answer').fadeOut();
+		   $(this).removeClass('close');
+	  }
+	); // end toggle
+}); // end ready
+</script>
+
+</head>
+
+<body>
+<div class="wrapper">
+<div class="header">
+	<p class="logo">JavaScript <i>&</i> jQuery <i class="mm">The<br>Missing<br>Manual</i></p>
+</div>
+<div class="content">
+	<div class="main">
+<h1>CNIT 133 Homework 7 - Object Model and Event Model</h1>
+<h2>CNIT 133 Homework 7 - Part 1 </h2>
+      <div class="answer">
+        <p>CSS Properies Changer</p>
+				<ul class="navbar" id="links">
+				<li><a href="HW7_1.htm">HW7 Part1</a>
+				</ul>
+      </div>
+<h2>CNIT 133 Homework 7 - Part 2</h2>
+
+			<div class="answer">
+        <p>Homework Navigation Bar Links</p>
+				<ul class="navbar" id="links">
+				<li><a href="HW7_2.htm">HW7 Part2</a>
+				</ul>
+      </div>
+
+</div>
+</div>
+<div class="footer">
+<p>JavaScript &amp; jQuery: The Missing Manual, by <a href="http://sawmac.com/">David McFarland</a>. Published by <a href="http://oreilly.com/">O'Reilly Media, Inc</a>.</p>
+</div>
+</div>
+</body>
+</html>
