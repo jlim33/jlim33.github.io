@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Exercise 1 miscellaneous using classname">
+<title>ClassName Example</title>
+<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+        // Define a document ready handler
+        $(function () {
+            // Attach a click event handler to all the radio buttons in the attribute selection table
+            $("#attributeTable :radio").click(function () {
+                // The "this" variable refers to the radio button that was clicked.
+                // The HTML code defines the name attribute of the radio button as the name of the CSS property
+                // we want to set; the value of the radio button is the value we want to set the CSS property to.
+                // By doing this, the CSS of the sample text can be set easily with the following line of code:
+                $("#body").css($(this).attr("name"), $(this).val());
+            });
+
+            // Attach a click event handler to the font size selection box
+            $("#fontSize").change(function () {
+                $("#body").css($(this).attr("name"), $(this).val());
+            });
+
+            // Attach a click event handler to the checkboxes in the attribute selection table
+            $("#attributeTable :checkbox").change(function () {
+                $("#body").css($(this).attr("name"), this.checked ? $(this).val() : "");
+            });
+
+            // Attach a click event handler to the radio buttons in the theme selection table
+            $("#themeTable :radio").click(function () {
+                // Clear specific CSS attributes that may have been set with the radio buttons in the attribute table
+                // by selecting all the one that have the checked attribute, and firing the click event
+                $("#attributeTable [checked]").click();
+
+                // Reset the select box by setting the value to ""
+                $("#fontSize").val("");
+
+                // Remove any class already set, and set the class to the one selected.
+                $("#body").removeClass().addClass($(this).val());
+            });
+
+            // Attach a click event handler to the Reset All button
+            $("#resetAll").click(function () {
+                $("#themeTable [checked]").click(); // Clicks theme table elements that have a checked attribute
+                $("#attributeTable [checked]").click(); // Clicks attribute table elements that have a checked attribute
+                $("#fontSize").val(""); // Selects the font-size that has a value of ""
+                $("#attributeTable :checked").click(); // Clicks all the checkboxes that are checked (to uncheck them)
+            });
+        });
+</script>
+
+<script>
+function selectFont()
+{
+    var origTableObject = document.getElementById("originalTable");
+    var selectedFont = document.getElementById('fontList').value;
+
+    if (selectedFont == "Arial")
+    {
+console.log(selectedFont);
+        switchToArial();
+    }
+    else if (selectedFont == "Times")
+    {
+console.log(selectedFont);
+        switchToTimes();
+    }
+    else if (selectedFont == "Impact")
+    {
+console.log(selectedFont);
+        switchToImpact();
+    }
+}
+
+function switchToArial()
+{
+    var body = document.getElementById("body");
+    body.className = "arialFont";
+}
+function switchToTimes()
+{
+    var body = document.getElementById("body");
+    body.className = "timesFont";
+}
+function switchToImpact()
+{
+    var body = document.getElementById("body");
+    body.className = "impactFont";
+}
+function switchToOrig()
+{
+
+    var origbody = document.getElementById("body");
+    origbody.className = "originalBody";
+
+
+    var origTableObject = document.getElementById("originalTable");
+    origTableObject.className = "basicTable";
+}
+
+</script>
+
+<style>
+body {
+	background-color: #CCCCFF;
+	color: #0000CC;
+}
+img {
+    display: block;
+    margin: 0 auto;
+}
+p {
+    text-align: center;
+	font-family: Times;
+	font-size: 18px;
+}
+p.main {
+	text-align: left;
+	font-family: Times;
+	font-size: 15px;
+	color: #3300CC;
+}
+h2 {
+    text-align: center;
+	font: 35px Times;
+	color: #0000CC ;
+}
+#content {
+	width:425px;
+	margin: 0px auto;
+	padding: 50px;
+    text-align: left;
+	background-color:#CCFF99;
+	border-style: solid;
+    border-width: 2px;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th{
+    padding: 5px;
+	background-color: #99CCFF ;
+    color: black;
+}
+td {
+    padding: 5px;
+	background-color: #C8C8C8;
+    color: #000099;
+}
+
+.originalBody {
+
+     background-color: #CCCCFF;
+     font-family: Times;
+     color: #0000CC;
+}
+
+.arialFont {
+    font-family: Arial;
+}
+.TimesFont {
+        font-family: Times;
+}
+.impactFont {
+    font-family: Impact;
+}
+
+#originalTable td{
+	text-align:center;
+}
+.blue {
+    background-color: #3399ff;
+}
+.yellow {
+    background-color: #FFFF00;
+}
+.green {
+    background-color: #00ff00;
+}
+.red {
+    background-color: #CC0000;
+}
+.italic {font-style:italic;}
+.normal {font-style:normal;}
+.bold {font-weight:bold;}
+.normal {font-weight:normal;}
+.small {
+    font-size: 10px;
+}
+.medium {
+    font-size: 14px;
+}
+.large {
+    font-size: 18px;
+}
+</style>
+</head>
+
+<body id="body" class="originalBody">
+  <h1>Using jQuery to Set CSS Classes and Attributes</h1>
+  <h2 class = "backgroundColorInput" id = "attributeForm">Please, select your favorite background color, font properies, and font!</h2>
+  <form name="CSSForm" id = "attributeForm">
+    <table id="attributeTable" border="1" cellspacing="0" cellpadding="5">
+      <td>
+          <label><input type="radio" name="background-color" value="Blue"
+                        id="azure">Blue</label><br>
+          <label><input type="radio" name="background-color" value="Yellow"
+                        id="yellow">Yellow</label><br>
+          <label><input type="radio" name="background-color" value="Green"
+                        id="green">Green</label><br>
+          <label><input type="radio" name="background-color" value="Red"
+                        id="red">Red</label><br>
+          <label><input type="radio" name="background-color" value=""
+                        id="bgColorDefault" checked>Default</label>
+      </td>
+  
+    <td>
+        <label>Select your font properties:</label><br>
+        <label><input type="checkbox" name="font-weight" value="bold" id="boldCheck">bold</label><br>
+        <label><input type="checkbox" name="font-style" value="italic" id="italicCheck">italic</label><br>
+        <label><input type="checkbox" name="font-variant" value="small-caps"
+                      id="smallCapsCheck">small-caps</label><br>
+        <label><input type="checkbox" name="text-decoration" value="underline"
+                      id="underlineCheck">underline</label><br>
+        <label><input type="checkbox" name="letter-spacing" value="-1px" id="tight">tight</label>
+    </td>
+    <td>
+        <label for="fontSize">Select one:</label><br>
+        <select name="font-size" size="5" id="fontSize">
+            <option value="80%">80%</option>
+            <option value="90%">90%</option>
+            <option value="100%">100%</option>
+            <option value="110%">110%</option>
+            <option value="" selected>Default</option>
+        </select>
+    </td>
+    <br><label for="fontList">Choose your favorite font:</label>
+    <select class="noneInput" id="fontList" onchange="selectFont()">
+      <option value="noSelection">Choose your font:</option>
+      <option value="Arial">Arial</option>
+      <option value="Times">Times</option>
+      <option value="Impact">Impact</option>
+      <option value="none">None of above</option>
+  </select>
+
+</table>
+</form>
+
+<!-- <br>
+<input type="button" value="Revert to original"  onclick="switchToOrig()"> -->
+
+
+</body>
+</html>
